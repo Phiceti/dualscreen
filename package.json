@@ -18,7 +18,7 @@
     "docs:build": "pnpm build && pnpm --filter dualscreen-docs build",
     "clean": "rm -rf packages/*/dist packages/*/*.tsbuildinfo examples/*/dist docs/.vitepress/dist docs/.vitepress/cache docs/public/demo",
     "demo": "pnpm --filter dualscreen-playground dev",
-    "demo:build": "DEMO_BASE=/demo/ pnpm --filter dualscreen-playground build && rm -rf docs/public/demo && mkdir -p docs/public && cp -r examples/playground/dist docs/public/demo",
+    "demo:build": "node scripts/build-demo.mjs",
     "site:build": "pnpm build && pnpm docs:check && pnpm demo:build && pnpm --filter dualscreen-docs build",
     "site:preview": "pnpm --filter dualscreen-docs preview",
     "docs:check": "node scripts/check-docs-html.mjs"
