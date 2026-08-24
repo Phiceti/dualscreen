@@ -28,7 +28,8 @@
       "types": "./dist/devtools.d.ts",
       "import": "./dist/devtools.js",
       "require": "./dist/devtools.cjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist"
@@ -75,5 +76,21 @@
   "devDependencies": {
     "tsup": "^8.3.5",
     "typescript": "^5.7.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "typesVersions": {
+    "*": {
+      "react": [
+        "./dist/react.d.ts"
+      ],
+      "screens": [
+        "./dist/screens.d.ts"
+      ],
+      "devtools": [
+        "./dist/devtools.d.ts"
+      ]
+    }
   }
 }

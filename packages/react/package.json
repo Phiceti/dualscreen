@@ -13,7 +13,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist"
@@ -50,5 +51,8 @@
   "homepage": "https://phiceti.github.io/dualscreen",
   "bugs": {
     "url": "https://github.com/phiceti/dualscreen/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
