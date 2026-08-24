@@ -1,0 +1,44 @@
+{
+  "name": "@dualscreen/screens",
+  "version": "0.1.0",
+  "description": "Multi-monitor detection and window placement for dualscreen \u2014 Window Management API with a graceful degradation ladder.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "dualscreen",
+    "window-management",
+    "multi-monitor",
+    "getScreenDetails"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phiceti/dualscreen.git",
+    "directory": "packages/screens"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "homepage": "https://phiceti.github.io/dualscreen",
+  "bugs": {
+    "url": "https://github.com/phiceti/dualscreen/issues"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "name": "dualscreen",
+  "version": "0.1.0",
+  "description": "Drive a second monitor from your web app. Click in one window, change what's shown in another \u2014 no server required.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js",
+      "require": "./dist/react.cjs"
+    },
+    "./screens": {
+      "types": "./dist/screens.d.ts",
+      "import": "./dist/screens.js",
+      "require": "./dist/screens.cjs"
+    },
+    "./devtools": {
+      "types": "./dist/devtools.d.ts",
+      "import": "./dist/devtools.js",
+      "require": "./dist/devtools.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "dualscreen",
+    "multi-monitor",
+    "second-screen",
+    "dual-monitor",
+    "cross-window",
+    "broadcastchannel",
+    "window-management",
+    "state-sync",
+    "presenter",
+    "react"
+  ],
+  "homepage": "https://phiceti.github.io/dualscreen",
+  "bugs": {
+    "url": "https://github.com/phiceti/dualscreen/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phiceti/dualscreen.git",
+    "directory": "packages/dualscreen"
+  },
+  "dependencies": {
+    "@dualscreen/core": "workspace:*",
+    "@dualscreen/screens": "workspace:*",
+    "@dualscreen/react": "workspace:*",
+    "@dualscreen/devtools": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  }
+}

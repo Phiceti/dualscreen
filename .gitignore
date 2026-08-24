@@ -1,0 +1,13 @@
+node_modules
+dist
+.DS_Store
+*.tsbuildinfo
+docs/.vitepress/dist
+docs/.vitepress/cache
+*.log
+.env
+.env.local
+coverage
+
+# generated: demo bundle copied into the docs site
+docs/public/demo

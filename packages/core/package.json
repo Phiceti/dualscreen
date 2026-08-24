@@ -1,0 +1,45 @@
+{
+  "name": "@dualscreen/core",
+  "version": "0.1.0",
+  "description": "Framework-agnostic core for dualscreen \u2014 transport, leader election, presence, and shared state across browser windows.",
+  "type": "module",
+  "license": "MIT",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "keywords": [
+    "dualscreen",
+    "multi-monitor",
+    "broadcastchannel",
+    "cross-window",
+    "state-sync"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phiceti/dualscreen.git",
+    "directory": "packages/core"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  },
+  "homepage": "https://phiceti.github.io/dualscreen",
+  "bugs": {
+    "url": "https://github.com/phiceti/dualscreen/issues"
+  }
+}

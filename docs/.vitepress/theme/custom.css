@@ -1,0 +1,350 @@
+/* ===========================================================================
+   dualscreen docs theme
+
+   VitePress toggles a `.dark` class on <html>, so dark values hang off that
+   rather than a media query — the site's own toggle has to win over the OS.
+   Brand colours are the validated palette's blue (light #2a78d6 / dark
+   #3987e5); the diverging red is reserved for chart-like accents only.
+   =========================================================================== */
+
+:root {
+  --vp-c-brand-1: #2a78d6;
+  --vp-c-brand-2: #256abf;
+  --vp-c-brand-3: #1c5cab;
+  --vp-c-brand-soft: rgba(42, 120, 214, 0.14);
+
+  --ds-accent: #2a78d6;
+  --ds-accent-ink: #ffffff;
+  --ds-pole-up: #e34948;
+  --ds-panel: #ffffff;
+  --ds-panel-2: #f6f6f3;
+  --ds-border: #e3e1da;
+  --ds-border-strong: #cbc8bd;
+  --ds-ink-2: #52514e;
+  --ds-ink-3: #86847c;
+  --ds-glow: rgba(42, 120, 214, 0.16);
+
+  --ds-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+  --ds-max: 1160px;
+}
+
+.dark {
+  --vp-c-brand-1: #3987e5;
+  --vp-c-brand-2: #4f96ea;
+  --vp-c-brand-3: #6da7ec;
+  --vp-c-brand-soft: rgba(57, 135, 229, 0.18);
+
+  --ds-accent: #3987e5;
+  --ds-accent-ink: #0b0b0b;
+  --ds-pole-up: #e66767;
+  --ds-panel: #1b1b1a;
+  --ds-panel-2: #212120;
+  --ds-border: #32322e;
+  --ds-border-strong: #46464140;
+  --ds-ink-2: #c3c2b7;
+  --ds-ink-3: #8b8a80;
+  --ds-glow: rgba(57, 135, 229, 0.2);
+}
+
+/* --- landing page shell ---------------------------------------------- */
+
+.ds-home {
+  max-width: var(--ds-max);
+  margin: 0 auto;
+  padding: 0 24px 96px;
+}
+
+.ds-home h2 {
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  border-top: 0;
+  margin: 0 0 10px;
+  padding-top: 0;
+}
+
+.ds-home h3 {
+  font-size: 18px;
+  letter-spacing: -0.012em;
+  margin: 0 0 8px;
+}
+
+.ds-home .lede {
+  font-size: 16.5px;
+  line-height: 1.62;
+  color: var(--ds-ink-2);
+  max-width: 72ch;
+  margin: 0 0 28px;
+}
+
+.ds-section {
+  padding: 64px 0 0;
+  scroll-margin-top: 80px;
+}
+
+.ds-eyebrow {
+  font-family: var(--ds-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ds-accent);
+  margin: 0 0 10px;
+  font-weight: 600;
+}
+
+/* --- hero ------------------------------------------------------------- */
+
+.ds-hero {
+  padding: 56px 0 8px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .ds-hero { grid-template-columns: 1fr; gap: 32px; padding-top: 32px; }
+}
+
+.ds-hero h1 {
+  font-size: clamp(38px, 5.2vw, 60px);
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  margin: 0 0 16px;
+  font-weight: 680;
+}
+
+.ds-hero h1 em {
+  font-style: normal;
+  color: var(--ds-accent);
+}
+
+.ds-hero .sub {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ds-ink-2);
+  margin: 0 0 28px;
+  max-width: 46ch;
+}
+
+.ds-badges { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+
+.ds-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  font-family: var(--ds-mono);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--ds-border);
+  background: var(--ds-panel-2);
+  color: var(--ds-ink-2);
+  white-space: nowrap;
+}
+.ds-chip b { color: var(--vp-c-text-1); font-weight: 600; }
+
+.ds-cta { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 14.5px;
+  font-weight: 560;
+  padding: 11px 20px;
+  border-radius: 9px;
+  text-decoration: none !important;
+  border: 1px solid transparent;
+  transition: filter 120ms ease, border-color 120ms ease, transform 120ms ease;
+}
+.ds-btn:active { transform: translateY(1px); }
+.ds-btn-primary { background: var(--ds-accent); color: var(--ds-accent-ink) !important; }
+.ds-btn-primary:hover { filter: brightness(1.08); }
+.ds-btn-ghost {
+  background: var(--ds-panel-2);
+  color: var(--vp-c-text-1) !important;
+  border-color: var(--ds-border);
+}
+.ds-btn-ghost:hover { border-color: var(--ds-border-strong); }
+
+/* install strip */
+.ds-install {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ds-mono);
+  font-size: 14px;
+  background: var(--ds-panel-2);
+  border: 1px solid var(--ds-border);
+  border-radius: 9px;
+  padding: 11px 15px;
+  margin: 0 0 22px;
+  max-width: 420px;
+  overflow-x: auto;
+}
+.ds-install .prompt { color: var(--ds-ink-3); user-select: none; }
+.ds-install b { font-weight: 400; color: var(--vp-c-text-1); }
+
+/* --- monitor diagram -------------------------------------------------- */
+
+.ds-figure {
+  background: var(--ds-panel);
+  border: 1px solid var(--ds-border);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 18px 48px var(--ds-glow);
+}
+.ds-figure svg { display: block; width: 100%; height: auto; }
+.ds-figure figcaption {
+  margin: 14px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ds-ink-3);
+  text-align: center;
+}
+
+/* --- cards ------------------------------------------------------------ */
+
+.ds-grid { display: grid; gap: 16px; }
+.ds-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.ds-grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 860px) { .ds-grid-2, .ds-grid-3 { grid-template-columns: 1fr; } }
+
+.ds-card {
+  background: var(--ds-panel);
+  border: 1px solid var(--ds-border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 140ms ease, transform 140ms ease;
+}
+.ds-card p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--ds-ink-2); }
+.ds-card p + p { margin-top: 10px; }
+.ds-card h3 { margin: 0 0 7px; font-size: 15.5px; }
+.ds-card .ds-num {
+  font-family: var(--ds-mono);
+  font-size: 12px;
+  color: var(--ds-accent);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+a.ds-card { text-decoration: none !important; color: inherit !important; display: block; }
+a.ds-card:hover { border-color: var(--ds-accent); transform: translateY(-2px); }
+a.ds-card .ds-more { color: var(--ds-accent); font-size: 13.5px; font-weight: 540; margin-top: 12px; display: block; }
+
+/* --- step list -------------------------------------------------------- */
+
+.ds-steps { counter-reset: step; display: grid; gap: 28px; }
+.ds-step { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 16px; align-items: start; }
+.ds-step::before {
+  counter-increment: step;
+  content: counter(step);
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--vp-c-brand-soft);
+  color: var(--ds-accent);
+  font-family: var(--ds-mono);
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.ds-step > div { min-width: 0; }
+.ds-step h3 { margin: 3px 0 6px; }
+.ds-step p { margin: 0 0 12px; font-size: 14.5px; line-height: 1.62; color: var(--ds-ink-2); }
+.ds-step div[class*='language-'] { margin: 0; }
+
+/* --- good / bad code -------------------------------------------------- */
+
+.ds-compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .ds-compare { grid-template-columns: 1fr; } }
+.ds-compare > div { min-width: 0; }
+.ds-verdict { font-size: 13.5px; font-weight: 600; margin: 0 0 8px; display: flex; align-items: center; gap: 7px; }
+.ds-verdict.good { color: #1baf7a; }
+.dark .ds-verdict.good { color: #199e70; }
+.ds-verdict.bad { color: var(--ds-pole-up); }
+
+/* --- embedded demo ---------------------------------------------------- */
+
+.ds-embed {
+  border: 1px solid var(--ds-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--ds-panel);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 18px 48px var(--ds-glow);
+}
+.ds-embed-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--ds-border);
+  background: var(--ds-panel-2);
+  font-size: 12.5px;
+  color: var(--ds-ink-3);
+  font-family: var(--ds-mono);
+}
+.ds-embed-bar .dots { display: flex; gap: 5px; }
+.ds-embed-bar .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--ds-border-strong); display: block; }
+.ds-embed iframe { display: block; width: 100%; height: 620px; border: 0; background: var(--vp-c-bg); }
+@media (max-width: 700px) { .ds-embed iframe { height: 520px; } }
+
+/* --- tables ----------------------------------------------------------- */
+
+.ds-home table { display: table; width: 100%; margin: 0; font-size: 14px; }
+.ds-home th { font-size: 12.5px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ds-ink-3); }
+.ds-home td code, .ds-home th code { font-size: 12.5px; }
+.ds-table-wrap { overflow-x: auto; border: 1px solid var(--ds-border); border-radius: 12px; }
+.ds-table-wrap table { border: 0; }
+.ds-table-wrap tr { border-color: var(--ds-border); }
+.ds-table-wrap th, .ds-table-wrap td { border-left: 0; border-right: 0; }
+.ds-table-wrap tr:last-child td { border-bottom: 0; }
+
+.ds-yes { color: #1baf7a; font-weight: 700; }
+.dark .ds-yes { color: #199e70; }
+.ds-no { color: var(--ds-pole-up); font-weight: 700; }
+
+/* --- ladder ----------------------------------------------------------- */
+
+.ds-ladder { display: grid; gap: 10px; counter-reset: rung; }
+.ds-rung {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 15px 18px;
+  border: 1px solid var(--ds-border);
+  border-radius: 11px;
+  background: var(--ds-panel);
+}
+.ds-rung strong { font-size: 14.5px; display: block; margin-bottom: 3px; }
+.ds-rung span { font-size: 13.5px; color: var(--ds-ink-2); line-height: 1.55; }
+.ds-rung code {
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  background: var(--vp-c-brand-soft);
+  color: var(--ds-accent);
+  white-space: nowrap;
+}
+@media (max-width: 620px) { .ds-rung { grid-template-columns: 1fr; gap: 8px; } }
+
+/* --- closing CTA ------------------------------------------------------ */
+
+.ds-final {
+  margin-top: 80px;
+  padding: 52px 32px;
+  text-align: center;
+  border: 1px solid var(--ds-border);
+  border-radius: 16px;
+  background: var(--ds-panel);
+  box-shadow: 0 18px 48px var(--ds-glow);
+}
+.ds-final h2 { margin-bottom: 10px; }
+.ds-final p { color: var(--ds-ink-2); max-width: 52ch; margin: 0 auto 24px; font-size: 15.5px; line-height: 1.6; }
+.ds-final .ds-cta { justify-content: center; }
+
+/* stop VitePress adding a rule above every h2 on the landing page */
+.ds-home h2 { border-top: none !important; }
